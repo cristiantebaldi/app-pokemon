@@ -9,5 +9,4 @@ class FetchPokemonUsecase {
   Future<List<Pokemon>> call() async {
     return await fetchPokemonRepository();
   }
-
 }

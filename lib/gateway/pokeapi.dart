@@ -12,6 +12,12 @@ class Pokeapi {
     return pokemons;
   }
 
+  Future<PokemonURLInfo> getPokemonDetailByURL(String pokemonURL) async {
+    final dio = Dio();
+    final response = await dio.get(pokemonURL);
+    return PokemonURLInfo.fromJson(response.data);
+  }
+
   Future<PokemonURLInfo> getPokemonByNamePokedex(String pokemonNamePokedex) async {
     final dio = Dio();
     final response = await dio.get('https://pokeapi.co/api/v2/pokemon/${pokemonNamePokedex.toLowerCase()}');

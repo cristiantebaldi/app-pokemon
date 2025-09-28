@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:pokeapi/module/dashboard/core/domain/model/pokemon.dart';
 import 'package:pokeapi/module/dashboard/core/domain/usecase/fetch_pokemon_usecase.dart';
 import 'package:pokeapi/module/dashboard/core/domain/usecase/get_pokemon_by_name_pokedex_usecase.dart';
+import 'package:pokeapi/module/dashboard/core/domain/usecase/get_pokemon_detail_by_URL_usecase.dart';
 
 class DashboardController {
   final TextEditingController searchController = TextEditingController();
@@ -19,18 +20,17 @@ class DashboardController {
 
   final FetchPokemonUsecase fetchPokemonUsecase;
   final GetPokemonByNamePokedexUsecase getPokemonByNamePokedexUsecase;
+  final GetPokemonDetailByURLUsecase getPokemonDetailByURLUsecase;
 
-  DashboardController({required this.fetchPokemonUsecase, required this.getPokemonByNamePokedexUsecase, required this.setState});
+  DashboardController({required this.fetchPokemonUsecase, required this.getPokemonByNamePokedexUsecase, required this.getPokemonDetailByURLUsecase, required this.setState});
 
   Future fetchPokemon() async {
-    final Dio dio = Dio();
     setState(() {});
     pokemons = await fetchPokemonUsecase();
     List<PokemonURLInfo> tempPokemonList = [];
     for (var pokemon in pokemons) {
       if (pokemon.pokemonURL != null) {
-        final pokemonDetailResponse = await dio.get(pokemon.pokemonURL!);
-        tempPokemonList.add(PokemonURLInfo.fromJson(pokemonDetailResponse.data));
+        tempPokemonList.add(await getPokemonDetailByURLUsecase(pokemon.pokemonURL!));
       }
     }
     setState(() {
