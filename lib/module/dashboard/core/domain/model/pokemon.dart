@@ -6,7 +6,7 @@ class Pokemon {
 
   static Pokemon fromJson(Map<String, dynamic> json) {
     return Pokemon(
-        name: _upperCaseFirstCaracter(json['name']),
+        name: upperCaseFirstCaracter(json['name']),
         pokemonURL: json['url']
     );
   }
@@ -23,13 +23,12 @@ class PokemonURLInfo {
     return PokemonURLInfo(
       image: json['sprites']['other']['home']['front_default'],
       pokedex: json['id'].toString(),
-      name: _upperCaseFirstCaracter(json['name']),
+      name: upperCaseFirstCaracter(json['name']),
     );
   }
 }
 
-
-String _upperCaseFirstCaracter(String name) {
+String upperCaseFirstCaracter(String name) {
   if (name.isEmpty) return "";
   return name[0].toUpperCase() + name.substring(1);
 }

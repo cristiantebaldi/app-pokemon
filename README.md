@@ -11,7 +11,7 @@
 - Utilização do System Design Material UI da Google;
 - Possibilidade de utilizar o modo escuro do APP.
 
-### Prévia do APP
+### Prévias do APP
 
 ### Como rodar esse projeto
 - Clonar o repositório;
