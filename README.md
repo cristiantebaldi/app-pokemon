@@ -11,6 +11,13 @@
 - Utilização do System Design Material UI da Google;
 - Possibilidade de utilizar o modo escuro do APP.
 
+### Prévia do APP
+<p float="left">
+  <img src="https://github.com/cristiantebaldi/app-pokemon/blob/main/app_preview/home.jpg" width="200" height="415px"/>
+  <img src="https://github.com/cristiantebaldi/app-pokemon/blob/main/app_preview/pesquisa_individual.jpg" width="200" height="415px"/>
+    <img src="https://github.com/cristiantebaldi/app-pokemon/blob/main/app_preview/pokemon-nao-encontrado.jpg" width="200" height="415px"/>
+</p>
+
 ### Como rodar esse projeto
 - Clonar o repositório;
 - Na raiz do projeto rodar o seguinte comando: `flutter run`;
